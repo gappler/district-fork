@@ -1,4 +1,4 @@
-# District Fork Naming Convention v1.0
+# District Fork Naming Convention
 
 Standard naming for all prompts and outputs in District Fork. Attach this file to prompts or load into project files.
 
