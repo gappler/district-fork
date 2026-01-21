@@ -1,4 +1,4 @@
-# district_affirmative_prompt version.md
+# district_affirmative_prompt
 
 ---
 version: 1.0
