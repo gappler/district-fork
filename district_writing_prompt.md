@@ -1,8 +1,8 @@
-# district_writing_prompt_v1.0
+# district_writing_prompt
 
 ---
-version: 1.0
-date: 2026-01-19
+version: 1.1
+date: 2026-01-21
 purpose: Generate race analyses for Field Report combining structural analysis, brand critique, and satire through precision
 tool: Claude (Opus 4.5 or equivalent)
 legacy_version: field_report_writing_prompt_v5.6.1
@@ -22,14 +22,14 @@ The publication has a point of view:
 
 ## Naming Convention
 
-**Reference:** `district_fork_naming_convention_v1.0.md`
+**Reference:** `district_naming_prompt.md`
 
 **Note:** Article outputs do not follow the standard research output naming pattern. Articles are published to Substack with editorial titles, not systematic filenames.
 
 **Research inputs** follow the naming convention:
-- `[district]_overview_v1.0.md` — District research
-- `[district]_opposition_[candidate]_v1.0.md` — Opposition research
-- `[district]_affirmative_[candidate]_v1.0.md` — Affirmative research
+- `[district]_overview.md` — District research
+- `[district]_opposition_[candidate].md` — Opposition research
+- `[district]_affirmative_[candidate].md` — Affirmative research
 
 ---
 
@@ -561,3 +561,4 @@ Before publishing, verify:
 | Version | Date | Changes |
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `field_report_writing_prompt_v5.6.1.md`. Added naming convention reference. All editorial guidance, voice guidelines, structure requirements, and examples unchanged. |
+| 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
