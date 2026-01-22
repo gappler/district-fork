@@ -1,8 +1,8 @@
 # district_affirmative_prompt
 
 ---
-version: 1.0
-date: 2026-01-19
+version: 1.1
+date: 2026-01-21
 purpose: Affirmative candidate performance research for U.S. House races
 tool: Manus AI or similar research tools with web search capability
 ---
@@ -32,11 +32,11 @@ It is **not** campaign material and **not** a defense brief.
 
 ## Naming Convention
 
-**Follow the conventions in the attached `district_fork_naming_convention_v1.0.md` file.**
+**Follow the conventions in the attached `district_naming_prompt.md` file.**
 
-Output filename pattern: `[district]_affirmative_[candidate]_v1.0.md`
+Output filename pattern: `[district]_affirmative_[candidate].md`
 
-Example: `TX-28_affirmative_henry_cuellar_v1.0.md`
+Example: `TX-28_affirmative_henry_cuellar.md`
 
 ---
 
@@ -55,7 +55,7 @@ Before beginning, confirm the following:
 
 The document's **H1 must match the filename** (without `.md`). This is how Manus names the output file.
 
-**Example H1:** `# TX-28_affirmative_henry_cuellar_v1.0`
+**Example H1:** `# TX-28_affirmative_henry_cuellar`
 
 Include YAML metadata block immediately after the H1:
 
@@ -65,8 +65,8 @@ district: TX-28
 type: affirmative
 candidate: henry_cuellar
 date: 2026-01-19
-prompt: district_affirmative_prompt_v1.0.md
-prompt_version: 1.0
+prompt: district_affirmative_prompt.md
+prompt_version: 1.1
 ---
 ```
 
@@ -219,3 +219,4 @@ End every affirmative research output with this sentence verbatim:
 | Version | Date | Changes |
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `affirmative_candidate_research_v1.0.md`. Added naming convention integration, YAML headers, output format requirements. Research sections unchanged. |
+| 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
