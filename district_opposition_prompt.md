@@ -1,7 +1,7 @@
-# District Fork Opposition Research Prompt (v1.0)
+# district_opposition_prompt
 
-**Version:** 1.0
-**Date:** January 19, 2026
+**Version:** 1.1
+**Date:** January 21, 2026
 **Purpose:** To generate a strictly forensic **Vulnerability Dossier** on a specific federal candidate (U.S. House, U.S. Senate, or Presidential). This report identifies specific structural weaknesses, contradictions, and liabilities.
 **Primary Deliverable:** The **Vulnerability Summary Matrix** (Section VI) is the primary product. All prior sections exist to populate and justify that matrix.
 **Audience:** Senior "Red Team" Strategists and Campaign Managers.
@@ -10,13 +10,13 @@
 
 ## Naming Convention
 
-Follow the conventions in the attached `district_fork_naming_convention_v1.0.md` file for output filename and header.
+Follow the conventions in the attached `district_naming_prompt.md` file for output filename and header.
 
-**Output filename:** `[district]_opposition_[candidate]_v1.0.md`
-Example: `TX-28_opposition_henry_cuellar_v1.0.md`
+**Output filename:** `[district]_opposition_[candidate].md`
+Example: `TX-28_opposition_henry_cuellar.md`
 
 **CRITICAL: Document H1 header must match the filename (without `.md`):**
-Example: `# TX-28_opposition_henry_cuellar_v1.0`
+Example: `# TX-28_opposition_henry_cuellar`
 
 **YAML metadata block (immediately after H1):**
 ```yaml
@@ -25,8 +25,8 @@ district: [district code]
 type: opposition
 candidate: [first_last]
 date: [YYYY-MM-DD]
-prompt: district_opposition_prompt_v1.0.md
-prompt_version: 1.0
+prompt: district_opposition_prompt.md
+prompt_version: 1.1
 ---
 ```
 
@@ -338,6 +338,7 @@ Every finding in this report must be assigned two ratings. Do not include findin
 | Version | Date | Changes |
 | :--- | :--- | :--- |
 | 1.0 | 2026-01-19 | Renamed to District Fork Opposition Prompt. Added Naming Convention section with output filename and YAML header requirements. Content carried forward from Federal Candidate Opposition Research Prompt v1.4. |
+| 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
 
 ---
 
