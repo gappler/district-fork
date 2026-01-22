@@ -13,11 +13,11 @@ District Fork produces standardized research and analysis for campaign strategy.
 | Prompt | Status | Description |
 |:-------|:-------|:------------|
 | `district_opposition_prompt.md` | ✓ Ready | Vulnerability dossier on a candidate |
-| `district_research_prompt.md` | Pending | District-level structural analysis |
+| `district_research_prompt.md` | ✓ Ready | District-level structural analysis |
 | `district_affirmative_prompt.md` | ✓ Ready | Candidate performance record |
 | `district_media_discovery_prompt.md` | ✓ Ready | Find relevant media coverage |
-| `district_media_triage_prompt.md` | ✓ Ready | Index media without interpreting |
-| `district_writing_prompt.md` | Pending | Draft the final article |
+| `district_media_notes_prompt.md` | ✓ Ready | Extract key details and quotes from articles |
+| `district_writing_prompt.md` | ✓ Ready | Draft the final article |
 
 ### Modules
 
@@ -44,7 +44,7 @@ District Fork produces standardized research and analysis for campaign strategy.
 | Affirmative Research | `district_affirmative_prompt.md` + naming convention | District, candidate name | "Run affirmative research on Henry Cuellar, TX-28" |
 | District Research | `district_research_prompt.md` + naming convention | District code | "Run district research on TX-28" |
 | Media Discovery | `district_media_discovery_prompt.md` + naming convention | District, all candidate names, primary date | "Run media discovery for TX-28. Candidates: Cuellar, Tijerina. Primary: March 3, 2026" |
-| Media Triage | `district_media_triage_prompt.md` + naming convention | District, attach media discovery output | "Triage the media for TX-28" |
+| Media Notes | `district_media_notes_prompt.md` + naming convention | District, attach media discovery output | "Extract notes from the TX-28 media" |
 
 ---
 
@@ -98,7 +98,7 @@ The full workflow for producing an article:
 2. **Opposition Research** — Vulnerabilities for each contender
 3. **Affirmative Research** — Performance record for incumbents/key candidates
 4. **Media Discovery** — Find relevant coverage
-5. **Media Triage** — Index articles without interpreting
+5. **Media Notes** — Extract key details and quotes from articles
 6. **Writer reads priority media** — Human editorial judgment
 7. **Writing** — Draft with AI assistance, human controls narrative
 8. **Citation pass** — Match claims to sources
@@ -123,4 +123,4 @@ Planned modules to extract from prompts:
 
 ---
 
-*Version 1.1 | January 21, 2026*
+*Version 1.2 | January 21, 2026*
