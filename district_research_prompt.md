@@ -1,27 +1,55 @@
-# U.S. House District Research Prompt (v4.5)
+# district_research_prompt
 
-**Version:** 4.5  
-**Date:** January 17, 2026  
-**Purpose:** To produce a comprehensive, neutral, and strictly forensic research document on a U.S. House district, suitable for use by journalists, campaign professionals, and academic researchers. This prompt is designed to be used as a template for generating research reports on any competitive U.S. House district. This version emphasizes factual rigor, eliminates speculative or strategic content, and provides explicit data source mapping.
+---
+version: 1.0
+date: 2026-01-21
+purpose: Produce a comprehensive, neutral, and strictly forensic research document on a U.S. House district
+tool: Manus AI or similar research tools with web search capability
+legacy_version: U.S. House District Research Prompt v4.5
+---
+
+## Naming Convention
+
+**Follow the conventions in the attached `district_naming_prompt.md` file.**
+
+Output filename pattern: `[district]_overview.md`
+
+Example: `NJ-11_overview.md`
+
+**CRITICAL: Document H1 header must match the filename (without `.md`):**
+
+Example: `# NJ-11_overview`
+
+**YAML metadata block (immediately after H1):**
+
+```yaml
+---
+district: NJ-11
+type: overview
+date: 2026-01-21
+prompt: district_research_prompt.md
+prompt_version: 1.0
+status: Research Complete
+---
+```
 
 ---
 
 ## Document Header (Required — Top of Report)
 
-Every research report must begin with a condensed document header containing the following fields in a single horizontal text block at the very top of the document, before Section 0. This format maximizes information density.
+Every research report must begin with a condensed document header containing the following fields in a single horizontal text block, after the YAML metadata. This format maximizes information density.
 
 **Format:**
 
-`[State] [District] ([Stage]) | Status: [Status] | Date: [Date] | Ratings: [Cook]/[Inside Elections] | PVI: [Score] | Incumbent: [Name] | Map: [Link]`
+`[State] [District] ([Stage]) | Ratings: [Cook]/[Inside Elections] | PVI: [Score] | Incumbent: [Name] | Map: [Link]`
 
 **Example:**
 
-`New Jersey 11th Congressional District (NJ-11) (Primary) | Status: Research Complete | Date: January 12, 2026 | Ratings: Lean D/Tilt D | PVI: D+2 | Incumbent: Mikie Sherrill (D) - First elected 2018 | Map: [Official District Map]`
+`New Jersey 11th Congressional District (NJ-11) (Primary) | Ratings: Lean D/Tilt D | PVI: D+2 | Incumbent: Mikie Sherrill (D) - First elected 2018 | Map: [Official District Map]`
 
 **Additional Administrative Fields (Below Header):**
 
 - **Report Type:** U.S. House District Research Report
-- **Version:** [X.X] (major.minor versioning)
 - **Last Updated:** [Month Day, Year, Time, Timezone] (if different from Date Compiled)
 - **Next Anticipated Update Trigger:** [Event and date]
   - Common trigger events include:
@@ -33,25 +61,6 @@ Every research report must begin with a condensed document header containing the
   - If multiple triggers are plausible, list the earliest one.
 - **Author/Source:** (Optional: e.g., "Manus AI" or analyst name)
 - **Commissioned By:** (Optional: if applicable)
-
----
-
-## Version Management
-
-- **Versioning Rules:**
-  - Version numbers are sequential within a report and do not reset.
-  - **Major version (X.0):** Increment when structure changes, sections are added/removed, or significant content is revised (e.g., 1.0 → 2.0).
-  - **Minor version (X.X):** Increment for corrections, data updates, or formatting fixes (e.g., 2.0 → 2.1).
-  - Never skip or reuse version numbers.
-
-- **Version/Date Consistency:**
-  - The Document Header is the single source of truth for version and date. Do not duplicate this information elsewhere.
-  - If the document has been updated, "Last Updated" must reflect the most recent change and must match the latest entry in the Version History table.
-
-- **Filename Convention (Recommended):**
-  - Format: `[State]-[District]_Research_Report_v[X.X].md`
-  - Example: `NJ-11_Research_Report_v4.5.md`
-  - Update the filename when the version changes.
 
 ---
 
@@ -376,9 +385,7 @@ Record all versions, including initial creation (1.0). Change descriptions shoul
 
 | Version | Date | Time (if same-day revision) | Changes |
 |---------|------|------------------------------|---------|
-| 1.0 | 2026-01-09 | 10:00 EST | Initial report creation based on v4.5 prompt. |
-| 2.0 | | | Example: "Added Implications by Actor section; updated outside spending with actual figures; expanded Institutional Power Dynamics investigation." |
-| 2.1 | | | Example: "Corrected 2022 election result data; verified all URLs functional." |
+| 1.0 | [Date] | | Initial report creation. |
 
 ---
 
@@ -388,26 +395,8 @@ If this report is part of a series covering multiple districts, verify that sect
 
 ---
 
-## Changelog: v4.4 → v4.5
+## Version History
 
-**Version 4.5 (January 17, 2026)**
-
-This version removes media coverage from the district research report. Media research is now handled in a separate workflow (Media Discovery + Media Triage) to improve factual control and editorial integrity.
-
-### Changes from v4.4 to v4.5
-
-1. **Removed Media Index Section (formerly III.B)**
-   - **Change:** Media Index section has been removed entirely.
-   - **Rationale:** Media coverage requires different handling than structural research. Separating media into its own workflow prevents AI interpretation from bleeding into factual research and gives the writer direct control over which media to read and how to interpret it.
-
-2. **Renamed Section III**
-   - **Change:** Section III renamed from "Campaign Finance and Media" to "Campaign Finance."
-   - **Rationale:** Reflects the removal of media content.
-
-3. **Added "Media Interpretation" to Explicit Exclusions (Section VII)**
-   - **Change:** Added explicit prohibition on media coverage analysis.
-   - **Rationale:** Reinforces the separation of media research from structural research.
-
-4. **Updated Example Version History Entry**
-   - **Change:** Removed reference to "added two new articles to Media Index" from example.
-   - **Rationale:** Aligns example with new document structure.
+| Version | Date | Changes |
+|:--------|:-----|:--------|
+| 1.0 | 2026-01-21 | Initial District Fork version. Converted from legacy `U.S. House District Research Prompt v4.5`. Added naming convention integration, YAML headers, output format requirements. Removed Version Management section (versioning now handled per `district_naming_prompt.md`). All research sections unchanged from v4.5. |
