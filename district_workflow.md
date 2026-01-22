@@ -1,7 +1,7 @@
 # district_workflow
 
 ---
-version: 1.2
+version: 1.3
 date: 2026-01-21
 purpose: One-page reference for the Early Returns article production workflow
 ---
@@ -113,7 +113,7 @@ Before any claim implying intent, motive, or causation:
 | 1 | `district_opposition_prompt.md` | Manus |
 | 1 | `district_affirmative_prompt.md` | Manus |
 | 2 | `district_media_discovery_prompt.md` | Manus |
-| 2-3 | `district_media_triage_prompt.md` (optional) | Manus |
+| 2-3 | `district_media_notes_prompt.md` (optional) | Manus |
 | 4-5 | `district_writing_prompt.md` | Claude |
 
 **For operational details** (what to attach, what to provide, what to say), see `district_fork_readme.md`.
@@ -137,3 +137,4 @@ Before any claim implying intent, motive, or causation:
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `field_report_workflow_v1.0.md`. Updated all prompt references to v1.0. Added output filenames. Added reference to README for operational details. |
 | 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
 | 1.2 | 2026-01-21 | Renamed publication from "Field Report" to "Early Returns". |
+| 1.3 | 2026-01-21 | Replaced Media Triage with Media Notes prompt. |
