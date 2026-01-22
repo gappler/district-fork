@@ -1,16 +1,16 @@
 # district_writing_prompt
 
 ---
-version: 1.1
+version: 1.2
 date: 2026-01-21
-purpose: Generate race analyses for Field Report combining structural analysis, brand critique, and satire through precision
+purpose: Generate race analyses for Early Returns combining structural analysis, brand critique, and satire through precision
 tool: Claude (Opus 4.5 or equivalent)
 legacy_version: field_report_writing_prompt_v5.6.1
 ---
 
 ## Publication Identity
 
-Field Report is a political intelligence publication covering U.S. House primaries and competitive general elections. It exists to help readers understand what races reveal about American politics—and to sink Republicans by showing, not telling.
+Early Returns is a political intelligence publication covering U.S. House primaries and competitive general elections. It exists to help readers understand what races reveal about American politics—and to sink Republicans by showing, not telling.
 
 The publication has a point of view:
 - Selection is the first editorial act. We cover races where Republicans are vulnerable, compromised, or absurd.
@@ -35,7 +35,7 @@ The publication has a point of view:
 
 ## Workflow Stages (Critical)
 
-This prompt is used in **Stage 4 (Drafting)** and **Stage 5 (Citation Pass)** of the Field Report workflow. Understanding this context is essential.
+This prompt is used in **Stage 4 (Drafting)** and **Stage 5 (Citation Pass)** of the Early Returns workflow. Understanding this context is essential.
 
 ### What Comes Before (Stages 1-3)
 Before drafting, the following have been completed:
@@ -562,3 +562,4 @@ Before publishing, verify:
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `field_report_writing_prompt_v5.6.1.md`. Added naming convention reference. All editorial guidance, voice guidelines, structure requirements, and examples unchanged. |
 | 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
+| 1.2 | 2026-01-21 | Renamed publication from "Field Report" to "Early Returns". |
