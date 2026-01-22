@@ -14,7 +14,7 @@ Standard naming for all prompts and outputs in District Fork. Attach this file t
 | Opposition Research | `district_opposition_prompt.md` |
 | Affirmative Research | `district_affirmative_prompt.md` |
 | Media Discovery | `district_media_discovery_prompt.md` |
-| Media Triage | `district_media_triage_prompt.md` |
+| Media Notes | `district_media_notes_prompt.md` |
 | Writing | `district_writing_prompt.md` |
 | Naming Convention | `district_naming_prompt.md` |
 
@@ -30,7 +30,7 @@ Standard naming for all prompts and outputs in District Fork. Attach this file t
 | Opposition Research | `opposition` | `TX-28_opposition_henry_cuellar.md` |
 | Affirmative Research | `affirmative` | `TX-28_affirmative_henry_cuellar.md` |
 | Media Discovery | `media_discovery` | `TX-28_media_discovery.md` |
-| Media Triage | `media_triage` | `TX-28_media_triage.md` |
+| Media Notes | `media_notes` | `TX-28_media_notes.md` |
 
 **Candidate names:** lowercase, underscore between first and last: `henry_cuellar`
 
@@ -58,7 +58,7 @@ prompt_version: 1.0
 | Field | Required | Notes |
 |:---|:---|:---|
 | district | Yes | Standard code (TX-28, NC-01) |
-| type | Yes | overview, opposition, affirmative, media_discovery, media_triage |
+| type | Yes | overview, opposition, affirmative, media_discovery, media_notes |
 | candidate | If applicable | For opposition/affirmative only |
 | date | Yes | YYYY-MM-DD |
 | prompt | Yes | Filename of prompt that created this |
@@ -108,7 +108,7 @@ Add this line to each prompt:
 PROMPTS:  district_[function]_prompt.md
 OUTPUTS:  [district]_[type]_[candidate].md
 
-TYPES:    overview, opposition, affirmative, media_discovery, media_triage
+TYPES:    overview, opposition, affirmative, media_discovery, media_notes
 NAMES:    first_last (lowercase, underscore)
 HEADER:   YAML with district, type, candidate, date, prompt, prompt_version
 VERSION:  Tracked in YAML header + version history table, not filename
@@ -122,3 +122,4 @@ VERSION:  Tracked in YAML header + version history table, not filename
 |:---|:---|:---|
 | 1.0 | 2026-01-19 | Initial version |
 | 1.1 | 2026-01-21 | Removed versions from filenames. Version tracking now lives in YAML headers and version history tables. GitHub commit history handles granular changes. |
+| 1.2 | 2026-01-21 | Replaced Media Triage with Media Notes. Triage prompt was overly complex; Notes is a simplified format for key details and quotes extraction. |
