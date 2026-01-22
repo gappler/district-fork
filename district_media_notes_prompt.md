@@ -1,7 +1,7 @@
 # district_media_notes_prompt
 
 ---
-version: 1.0
+version: 1.0.1
 date: 2026-01-21
 purpose: Extract key details and quotes from media articles for U.S. House races
 tool: Manus AI or similar research tools
@@ -62,7 +62,7 @@ district: TX-28
 type: media_notes
 date: 2026-01-21
 prompt: district_media_notes_prompt.md
-prompt_version: 1.0
+prompt_version: 1.0.1
 articles_processed: 12
 source: TX-28_media_discovery.md
 ---
@@ -156,6 +156,28 @@ Do NOT include:
 
 ---
 
+## Cross-Article Analysis (End of Document)
+
+After processing all articles, add a brief section noting where articles agree or contradict on key facts:
+
+```
+## Cross-Article Analysis
+
+**Confirmed Across Sources:**
+- [Fact]: Confirmed by Articles [#, #, #]
+- [Fact]: Confirmed by Articles [#, #]
+
+**Contradictions or Discrepancies:**
+- [Topic]: Article [#] says [X], Article [#] says [Y]
+
+**Single-Source Claims:**
+- [Significant claim that appears in only one article]
+```
+
+Keep this factual. Note what sources say, not what it means.
+
+---
+
 ## Historical Context (Optional)
 
 If an article provides significant historical context relevant to the current race (prior elections, previous scandals, past primary challenges), include a separate section:
@@ -181,7 +203,6 @@ Do NOT:
 - Summarize the "story" across articles
 - Draw conclusions about the race
 - Interpret candidate strategy or motives
-- Create cross-article analysis or synthesis
 - Rate or rank articles by importance
 
 ---
@@ -192,8 +213,9 @@ A complete media notes output must:
 - [ ] Process all articles provided
 - [ ] Include 5-7 key details per article
 - [ ] Extract all substantive direct quotes
+- [ ] Include cross-article analysis section
 - [ ] Use neutral, factual language throughout
-- [ ] Avoid all interpretation or synthesis
+- [ ] Avoid all interpretation
 
 ---
 
@@ -209,4 +231,5 @@ End every notes output with this sentence verbatim:
 
 | Version | Date | Changes |
 |:--------|:-----|:--------|
-| 1.0 | 2026-01-21 | Initial version. Replaces `district_media_triage_prompt.md`. Simplified format: removed claims tables, corroboration matrices, flag taxonomy, and cross-article analysis. Focus on key details and direct quotes per article. |
+| 1.0 | 2026-01-21 | Initial version. Replaces `district_media_triage_prompt.md`. Simplified format: removed claims tables, corroboration matrices, flag taxonomy. Focus on key details and direct quotes per article. |
+| 1.0.1 | 2026-01-21 | Added Cross-Article Analysis section for noting confirmations, contradictions, and single-source claims. |
