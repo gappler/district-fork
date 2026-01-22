@@ -1,8 +1,8 @@
-# district_media_discovery_prompt_v1.0
+# district_media_discovery_prompt
 
 ---
-version: 1.0
-date: 2026-01-19
+version: 1.1
+date: 2026-01-21
 purpose: Find and return relevant media coverage for U.S. House races
 tool: Manus AI or similar research tools with web search capability
 ---
@@ -27,11 +27,11 @@ You do NOT:
 
 ## Naming Convention
 
-**Follow the conventions in the attached `district_fork_naming_convention_v1.0.md` file.**
+**Follow the conventions in the attached `district_naming_prompt.md` file.**
 
-Output filename pattern: `[district]_media_discovery_v1.0.md`
+Output filename pattern: `[district]_media_discovery.md`
 
-Example: `TX-28_media_discovery_v1.0.md`
+Example: `TX-28_media_discovery.md`
 
 ---
 
@@ -53,7 +53,7 @@ Before beginning, confirm the following information:
 
 The document's **H1 must match the filename** (without `.md`). This is how Manus names the output file.
 
-**Example H1:** `# TX-28_media_discovery_v1.0`
+**Example H1:** `# TX-28_media_discovery`
 
 Include YAML metadata block immediately after the H1:
 
@@ -62,8 +62,8 @@ Include YAML metadata block immediately after the H1:
 district: TX-28
 type: media_discovery
 date: 2026-01-19
-prompt: district_media_discovery_prompt_v1.0.md
-prompt_version: 1.0
+prompt: district_media_discovery_prompt.md
+prompt_version: 1.1
 candidates: [Henry Cuellar, Jessica Cisneros]
 primary_date: 2026-03-03
 ---
@@ -245,3 +245,4 @@ A complete media discovery output must:
 | Version | Date | Changes |
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `media_discovery_prompt_v1.0.md`. Added naming convention integration, document header requirements with YAML. Search strategy and quality standards unchanged. |
+| 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
