@@ -1,8 +1,8 @@
-# district_media_triage_prompt_v1.0
+# district_media_triage_prompt
 
 ---
-version: 1.0
-date: 2026-01-19
+version: 1.1
+date: 2026-01-21
 purpose: Index media articles without interpretation for U.S. House races
 tool: Manus AI or similar research tools
 ---
@@ -31,11 +31,11 @@ Do ONLY:
 
 ## Naming Convention
 
-**Follow the conventions in the attached `district_fork_naming_convention_v1.0.md` file.**
+**Follow the conventions in the attached `district_naming_prompt.md` file.**
 
-Output filename pattern: `[district]_media_triage_v1.0.md`
+Output filename pattern: `[district]_media_triage.md`
 
-Example: `TX-28_media_triage_v1.0.md`
+Example: `TX-28_media_triage.md`
 
 ---
 
@@ -54,7 +54,7 @@ You will receive:
 
 The document's **H1 must match the filename** (without `.md`). This is how Manus names the output file.
 
-**Example H1:** `# TX-28_media_triage_v1.0`
+**Example H1:** `# TX-28_media_triage`
 
 Include YAML metadata block immediately after the H1:
 
@@ -63,10 +63,10 @@ Include YAML metadata block immediately after the H1:
 district: TX-28
 type: media_triage
 date: 2026-01-19
-prompt: district_media_triage_prompt_v1.0.md
-prompt_version: 1.0
+prompt: district_media_triage_prompt.md
+prompt_version: 1.1
 articles_processed: 12
-source: TX-28_media_discovery_v1.0.md
+source: TX-28_media_discovery.md
 ---
 ```
 
@@ -228,3 +228,4 @@ End every triage output with this sentence verbatim:
 | Version | Date | Changes |
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `media_triage_v1.1.md`. Added naming convention integration, document header requirements with YAML. Indexing format and quality standards unchanged. |
+| 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
