@@ -1,9 +1,9 @@
 # district_workflow
 
 ---
-version: 1.1
+version: 1.2
 date: 2026-01-21
-purpose: One-page reference for the Field Report article production workflow
+purpose: One-page reference for the Early Returns article production workflow
 ---
 
 ## The Principle
@@ -136,3 +136,4 @@ Before any claim implying intent, motive, or causation:
 |:--------|:-----|:--------|
 | 1.0 | 2026-01-19 | Initial District Fork version. Converted from legacy `field_report_workflow_v1.0.md`. Updated all prompt references to v1.0. Added output filenames. Added reference to README for operational details. |
 | 1.1 | 2026-01-21 | Updated naming convention references. Removed versions from filenames per `district_naming_prompt.md` v1.1. |
+| 1.2 | 2026-01-21 | Renamed publication from "Field Report" to "Early Returns". |
