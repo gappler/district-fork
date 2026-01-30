@@ -20,8 +20,26 @@ Retrieve electoral results for this district for the **past 5 election cycles** 
 
 ## Output Format
 
-### Output File
-`[district]_electoral_history.md`
+### Output File Naming Convention
+
+**REQUIRED:** Before generating output, load and apply all conventions from `district_naming_prompt.md`. This file governs output filenames, H1 headers, and YAML metadata blocks.
+
+Output filename pattern: `[district]_electoral_history.md`
+Example: `TX-28_electoral_history.md`
+
+**CRITICAL: Document H1 header must match the filename (without `.md`):**
+Example: `# TX-28_electoral_history`
+
+**YAML metadata block (immediately after H1):**
+```yaml
+---
+district: [district code]
+type: electoral_history
+date: [YYYY-MM-DD]
+prompt: district_electoral_history_prompt.md
+prompt_version: 1.0
+---
+```
 
 ### Structure
 
