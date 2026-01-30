@@ -27,7 +27,7 @@ You do NOT:
 
 ## Naming Convention
 
-**Follow the conventions in the attached `district_naming_prompt.md` file.**
+**REQUIRED:** Before generating output, load and apply all conventions from `district_naming_prompt.md`. This file governs output filenames, H1 headers, and YAML metadata blocks.
 
 Output filename pattern: `[district]_media_discovery.md`
 
