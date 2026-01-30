@@ -20,8 +20,13 @@ Provide factual context about the district's composition and character. This is 
 
 ## Output Format
 
-### Output File
-`[district]_context.md`
+### Output File Naming Convention
+
+**Follow the conventions in the attached `district_naming_prompt.md` file.**
+
+Output filename pattern: `[district]_affirmative_[candidate].md`
+Example: `TX-28_affirmative_henry_cuellar.md`
+
 
 ### Structure
 
