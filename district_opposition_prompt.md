@@ -10,7 +10,7 @@
 
 ## Naming Convention
 
-Follow the conventions in the attached `district_naming_prompt.md` file for output filename and header.
+**REQUIRED:** Before generating output, load and apply all conventions from `district_naming_prompt.md`. This file governs output filenames, H1 headers, and YAML metadata blocks.
 
 **Output filename:** `[district]_opposition_[candidate].md`
 Example: `TX-28_opposition_henry_cuellar.md`
