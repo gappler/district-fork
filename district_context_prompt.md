@@ -22,10 +22,23 @@ Provide factual context about the district's composition and character. This is 
 
 ### Output File Naming Convention
 
-**Follow the conventions in the attached `district_naming_prompt.md` file.**
+**REQUIRED:** Before generating output, load and apply all conventions from `district_naming_prompt.md`. This file governs output filenames, H1 headers, and YAML metadata blocks.
 
 Output filename pattern: `[district]_context.md`
 Example: `TX-28_context.md`
+
+**CRITICAL: Document H1 header must match the filename (without `.md`):**
+Example: `# TX-28_context`
+
+**YAML metadata block (immediately after H1):**
+```yaml
+---
+district: [district code]
+type: context
+date: [YYYY-MM-DD]
+prompt: district_context_prompt.md
+prompt_version: 1.0
+---
 
 ### Structure
 
