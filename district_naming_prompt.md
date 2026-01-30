@@ -10,11 +10,12 @@ Standard naming for all prompts and outputs in District Fork. Attach this file t
 
 | Prompt | Filename |
 |:---|:---|
-| District Research | `district_research_prompt.md` |
-| Opposition Research | `district_opposition_prompt.md` |
-| Affirmative Research | `district_affirmative_prompt.md` |
 | Media Discovery | `district_media_discovery_prompt.md` |
 | Media Notes | `district_media_notes_prompt.md` |
+| District Context | `district_context_prompt.md` |
+| Opposition Research | `district_opposition_prompt.md` |
+| Electoral History | `district_electoral_history_prompt.md` |
+| Affirmative Research | `district_affirmative_prompt.md` |
 | Writing | `district_writing_prompt.md` |
 | Naming Convention | `district_naming_prompt.md` |
 
@@ -26,11 +27,13 @@ Standard naming for all prompts and outputs in District Fork. Attach this file t
 
 | Output Type | Code | Example |
 |:---|:---|:---|
-| District Research | `overview` | `TX-28_overview.md` |
+| District Context | `context` | `TX-28_context.md` |
+| Electoral History | `electoral_history` | `TX-28_electoral_history.md` |
 | Opposition Research | `opposition` | `TX-28_opposition_henry_cuellar.md` |
 | Affirmative Research | `affirmative` | `TX-28_affirmative_henry_cuellar.md` |
 | Media Discovery | `media_discovery` | `TX-28_media_discovery.md` |
 | Media Notes | `media_notes` | `TX-28_media_notes.md` |
+| Writing Output | `drafting` | `TX-28_draft.md` |
 
 **Candidate names:** lowercase, underscore between first and last: `henry_cuellar`
 
