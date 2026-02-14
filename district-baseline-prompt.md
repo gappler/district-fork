@@ -1,11 +1,11 @@
 # district-baseline-prompt
 
 ---
-version: 3.3
-date: 2026-02-12
+version: 3.4
+date: 2026-02-14
 purpose: Build structural foundation for Early Returns district articles
 tool: Manus AI 1.6 max
-replaces: district-baseline-prompt v3.2
+replaces: district-baseline-prompt v3.3
 ---
 
 ## Naming Convention
@@ -338,7 +338,7 @@ district: TX-34
 type: baseline
 date: 2026-02-11
 prompt: district-baseline-prompt.md
-prompt_version: 3.3
+prompt_version: 3.4
 ---
 ```
 
@@ -464,3 +464,4 @@ Before delivering the final document, verify each item:
 | 3.1 | 2026-02-11 | Hyphens replace underscores as universal separator per naming convention v1.4. |
 | 3.2 | 2026-02-11 | Fixed Section 3 IE URL to use correct FEC web interface with most_recent=true filter. Split pre-flight IE download into 2024 and 2026 cycles. Added candidate name consolidation note. Added rules: one-decimal precision (rule 9), use specified web URLs not API endpoints (rule 10). |
 | 3.3 | 2026-02-12 | Added QA Checklist section for pre-delivery format and content verification. |
+| 3.4 | 2026-02-14 | Added optional {COUNTIES} input for redistricted states. Added DRA map verification to pre-flight. Section 7 uses provided counties when available instead of Ballotpedia lookup. |
