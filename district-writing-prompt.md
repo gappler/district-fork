@@ -1,8 +1,8 @@
 # district_writing_prompt
 
 ---
-version: 2.0
-date: 2026-01-30
+version: 2.1
+date: 2026-02-14
 purpose: Generate race analyses for Early Returns combining structural analysis, brand critique, and satire through precision
 tool: Claude (Opus 4.5 or equivalent)
 legacy_version: district_writing_prompt v1.2
@@ -350,6 +350,9 @@ The closing line is not a summary. It's a callback that lands. Sometimes the cle
 - "Fourteen points in four years. The district didn't drift. It lurched."
 - "He has no FEC fundraising data yet. No donors. No infrastructure."
 - "That's not a denial. That's a negotiation."
+- A two-word sentence does more work than a paragraph of explanation. "No misconduct." "On the old lines."
+- White space is editorial. An orphan line after a dense paragraph forces the reader to pause and do the math.
+- Em dashes: no spaces, use sparingly. If you can swap to a colon or comma, do it. Vary your punctuation.
 
 ### The Dig
 
@@ -366,6 +369,7 @@ A dig must:
 - "The volatility is documented. The brilliance is taken on faith."
 - "Her miracle cure was redistricting."
 - "They built the trap. They're still looking for someone who can spring it."
+- "Her institutional backing amounts to Texas Values Action, Maggie's List, and a local activist." (The list *is* the dig. No comment needed.)
 
 **Bad digs:**
 - Namecalling without evidence
@@ -383,6 +387,8 @@ Don't pile on. The quote does the work.
 ### What to Avoid
 - "I think" or "in my opinion" unless you're making a deliberate contrarian point
 - Hedging language ("somewhat," "arguably," "it could be said")
+- Hedging when evidence supports a flat statement ("appears to be" → state it)
+- "Genuinely," "honestly," "straightforward"
 - False balance (you don't need to find something nice to say)
 - Explaining why something is bad (show, don't tell)
 - More than one question per paragraph
@@ -484,8 +490,10 @@ Flag for writer review:
 
 ### Style
 - [ ] Check for overuse of dashes, colons, semicolons
+- [ ] Em dashes consistent (no spaces) and varied with colons/commas
 - [ ] Check for repeated words or phrases across sections
 - [ ] Check for redundancy between sections (especially Upshot vs. body)
+- [ ] Polling claims verified against actual toplines, not summaries or memos
 - [ ] Read aloud for rhythm
 
 ### Completeness
@@ -548,3 +556,4 @@ Flag for writer review:
 | 1.1 | 2026-01-21 | Updated naming convention references. |
 | 1.2 | 2026-01-21 | Renamed publication from "Field Report" to "Early Returns". |
 | 2.0 | 2026-01-30 | Major overhaul based on OH-09 workflow. Restructured workflow stages to reflect actual process (research → angle agreement → drafting → collaborative editing → citation audit → finalize). Added "sit on it" to checklist. Expanded Upshot section with two format options (candidate brands vs. structural forces). Added detailed citation notes format for audit. Added style checks (dashes, colons, redundancy). Added collaborative editing stage. Removed redundant sections. Clarified Manus research as input not output. |
+| 2.1 | 2026-02-14 | Voice refinements from TX-34 editing. Added: compression guidance (two-word sentences, white space as editorial tool), em dash discipline (no spaces, vary with colons/commas), "list as dig" example, hedging and filler word avoidance. Added polling topline verification and em dash consistency to pre-publication checklist. |
