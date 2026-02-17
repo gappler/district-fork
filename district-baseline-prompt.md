@@ -1,11 +1,11 @@
 # district-baseline-prompt
 
 ---
-version: 3.4
-date: 2026-02-14
+version: 3.5
+date: 2026-02-17
 purpose: Build structural foundation for Early Returns district articles
 tool: Manus AI 1.6 max
-replaces: district-baseline-prompt v3.3
+replaces: district-baseline-prompt v3.4
 ---
 
 ## Naming Convention
@@ -18,28 +18,46 @@ Example: `tx-34-baseline.md`
 
 ---
 
-## Input
+## Interactive Pre-flight
 
+**STOP.** Before running this prompt, you need to provide files and variables. Follow the steps below. Upload files as you go. When everything is ready, type **READY** and the prompt will proceed.
+
+### Step 1: Provide district info
+Type the following:
 - **District:** {DISTRICT_ID} (e.g., TX-28, WA-03, OH-09)
 - **State:** {STATE} (e.g., Texas, Washington, Ohio)
 
----
+### Step 2: Upload Census CSV
+Download from: `https://www.census.gov/mycd/application/?st={STATE_FIPS}&cd={DISTRICT_NUMBER}`
+Click the download/export button. **Upload the CSV here.**
 
-## Pre-flight (manual, before running this prompt)
+### Step 3: Upload Downballot presidential results CSV
+From your data folder: `data/reference/downballot-presidential.csv`
+(One-time download from https://docs.google.com/spreadsheets/d/1ng1i_Dm_RMDnEvauH44pgE6JCUsapcuu8F2pCfeLWFo — export "Percentages" tab as CSV)
+**Upload the CSV here.**
 
-Complete these steps before starting. Attach the files where noted.
+### Step 4: Upload Kondik crossover CSV (redistricted states only)
+**Skip this step** if the district is NOT in a redistricted state.
+Redistricted states: California, Missouri, North Carolina, Ohio, Texas, Utah.
+From your data folder: `data/reference/kondik-crossover-presidential-2026-lines.csv`
+**Upload the CSV here, or type SKIP.**
 
-1. **Census CSV:** Download from https://www.census.gov/mycd/application/?st={STATE_FIPS}&cd={DISTRICT_NUMBER} — Click the download/export button. Attach the CSV to this prompt.
-2. **Downballot presidential results CSV:** From your data folder (one-time download from https://docs.google.com/spreadsheets/d/1ng1i_Dm_RMDnEvauH44pgE6JCUsapcuu8F2pCfeLWFo — export "Percentages" tab as CSV). Attach to this prompt.
-3. **Kondik crossover CSV (if redistricted):** From your data folder (`data/reference/kondik-crossover-presidential-2026-lines.csv`). Attach to this prompt ONLY if the district is in a state that redistricted for 2026 (California, Missouri, North Carolina, Ohio, Texas, Utah). If the district is not in a redistricted state, skip this attachment.
-4. **Ratings:** Look up {DISTRICT_ID} at each source and note the values below.
-   - Cook PVI: {COOK_PVI} — https://www.cookpolitical.com/ratings/house-race-ratings (requires login)
-   - Cook rating: {COOK_RATING} — same page
-   - Sabato: {SABATO_RATING} — https://centerforpolitics.org/crystalball/2026-house/
-   - Inside Elections: {IE_RATING} — https://insideelections.com/ratings/house
-5. **FEC Candidate Totals (QA):** Download from https://www.fec.gov/data/candidates/house/?election_year=2026&election_full=True&state={STATE_ABBREV}&district={DISTRICT_NUMBER}&is_active_candidate=true — Export CSV. Use to verify Manus output for Section 2.
-6. **FEC Independent Expenditures — 2024 cycle (QA):** Download from https://www.fec.gov/data/independent-expenditures/?data_type=processed&most_recent=true&cycle=2024&is_notice=false&candidate_office=H&candidate_office_state={STATE_ABBREV}&candidate_office_district={DISTRICT_NUMBER} — Export CSV. Use to verify Manus output for Section 3.
-7. **FEC Independent Expenditures — 2026 cycle (QA):** Download from https://www.fec.gov/data/independent-expenditures/?data_type=processed&most_recent=true&cycle=2026&is_notice=false&candidate_office=H&candidate_office_state={STATE_ABBREV}&candidate_office_district={DISTRICT_NUMBER} — Export CSV. Use to verify Manus output for Section 3.
+### Step 5: Provide ratings
+Look up {DISTRICT_ID} at each source and type the values:
+- Cook PVI: {COOK_PVI} — https://www.cookpolitical.com/ratings/house-race-ratings (requires login)
+- Cook rating: {COOK_RATING} — same page
+- Sabato: {SABATO_RATING} — https://centerforpolitics.org/crystalball/2026-house/
+- Inside Elections: {IE_RATING} — https://insideelections.com/ratings/house
+
+### Step 6: Download FEC files for QA (do not upload — these are for your own verification after the run)
+- **FEC Candidate Totals:** https://www.fec.gov/data/candidates/house/?election_year=2026&election_full=True&state={STATE_ABBREV}&district={DISTRICT_NUMBER}&is_active_candidate=true — Export CSV → save to `data/fec-candidates.csv`
+- **FEC IE 2024:** https://www.fec.gov/data/independent-expenditures/?data_type=processed&most_recent=true&cycle=2024&is_notice=false&candidate_office=H&candidate_office_state={STATE_ABBREV}&candidate_office_district={DISTRICT_NUMBER} — Export CSV → save to `data/fec-ie-2024.csv`
+- **FEC IE 2026:** https://www.fec.gov/data/independent-expenditures/?data_type=processed&most_recent=true&cycle=2026&is_notice=false&candidate_office=H&candidate_office_state={STATE_ABBREV}&candidate_office_district={DISTRICT_NUMBER} — Export CSV → save to `data/fec-ie-2026.csv`
+
+### Step 7: DRA map verification (redistricted states only)
+If redistricted, verify counties at Dave's Redistricting App (https://davesredistricting.org/). Provide the county list here, or type SKIP.
+
+**When all files are uploaded and variables provided, type READY to proceed.**
 
 ---
 
@@ -465,3 +483,4 @@ Before delivering the final document, verify each item:
 | 3.2 | 2026-02-11 | Fixed Section 3 IE URL to use correct FEC web interface with most_recent=true filter. Split pre-flight IE download into 2024 and 2026 cycles. Added candidate name consolidation note. Added rules: one-decimal precision (rule 9), use specified web URLs not API endpoints (rule 10). |
 | 3.3 | 2026-02-12 | Added QA Checklist section for pre-delivery format and content verification. |
 | 3.4 | 2026-02-14 | Added optional {COUNTIES} input for redistricted states. Added DRA map verification to pre-flight. Section 7 uses provided counties when available instead of Ballotpedia lookup. |
+| 3.5 | 2026-02-17 | Replaced static pre-flight with interactive pre-flight: step-by-step upload prompts with READY confirmation before proceeding. Separated QA-only downloads (FEC files) from prompt-required uploads. |

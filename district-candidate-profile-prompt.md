@@ -1,8 +1,8 @@
 # district-candidate-profile-prompt
 
 ---
-version: 1.4
-date: 2026-02-12
+version: 1.5
+date: 2026-02-17
 purpose: Build a comprehensive factual profile for a candidate in a U.S. House race
 tool: Manus AI 1.6 max
 replaces: district-opposition-prompt.md, district-affirmative-prompt.md
@@ -18,14 +18,49 @@ Example: `tx-34-candidate-mayra-flores.md`
 
 ---
 
-## Input
+## Interactive Pre-flight
 
+Complete the following steps in order. Wait for each response before proceeding to the next step.
+
+### Step 1: District and Candidate Info
+
+Ask the user to provide:
 - **District:** {DISTRICT_ID}
 - **Candidate name:** {CANDIDATE_NAME}
 - **Party:** {PARTY}
 - **Status:** Incumbent / Challenger / Open Seat
-- **Baseline file:** Attach `{district}-baseline.md`
-- **Media research file:** Attach `{district}-media-research.md`
+
+Confirm you received all four fields before proceeding.
+
+### Step 2: Upload Baseline File
+
+Ask the user to upload the baseline research file:
+> "Please upload the baseline file for this district (`{district}-baseline.md`). This provides district context for cross-referencing."
+
+Wait for the file upload. Confirm the filename matches the expected pattern.
+
+### Step 3: Upload Media Research File
+
+Ask the user to upload the media research file:
+> "Please upload the media research file for this district (`{district}-media-research.md`). This provides press coverage and quotes for cross-referencing."
+
+Wait for the file upload. Confirm the filename matches the expected pattern.
+
+### Step 4: Confirm Ready
+
+After all inputs are collected, display a summary:
+```
+District: {DISTRICT_ID}
+Candidate: {CANDIDATE_NAME}
+Party: {PARTY}
+Status: {STATUS}
+Baseline file: {filename} ✓
+Media research file: {filename} ✓
+```
+
+Ask: **"Type READY to begin candidate profile research."**
+
+Do not proceed until the user types READY.
 
 ---
 
@@ -368,7 +403,7 @@ type: candidate-profile
 candidate: {candidate-name-lowercase-hyphenated}
 date: {TODAY}
 prompt: district-candidate-profile-prompt.md
-prompt_version: 1.4
+prompt_version: 1.5
 ---
 ```
 
@@ -505,3 +540,4 @@ Before delivering the final document, verify each item:
 | 1.2 | 2026-02-11 | Added template enforcement rule (Rule 1) and H3 header level spec (Rule 2). Empty field handling for donor industries. YAML position clarified as "immediately after H1." Verbatim closing statement added to document structure list. Optional party/status YAML fields added. Based on Manus post-run review of Mayra Flores test. |
 | 1.3 | 2026-02-12 | Added cross-reference checklist (Rule 3): baseline and media research files must be exhausted before marking fields "Not available." Added QA pass (Rule 14): review all "Not available" fields against attached files before delivery. Based on Eric Flores run where baseline financials were initially missed. |
 | 1.4 | 2026-02-12 | Added QA Checklist section for pre-delivery format and content verification. Clarified fundraising geography severity thresholds apply to in-district data only; in-state fallback reported without severity labels. |
+| 1.5 | 2026-02-17 | Replaced static Input section with interactive pre-flight: step-by-step prompts for district/candidate info, baseline upload, media research upload, and READY confirmation before proceeding. |

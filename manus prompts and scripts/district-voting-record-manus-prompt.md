@@ -1,8 +1,8 @@
 # district-voting-record-prompt
 
 ---
-version: 1.0
-date: 2026-02-16
+version: 1.1
+date: 2026-02-17
 purpose: Produce a clean, verified voting record table for any U.S. House incumbent
 tool: Manus AI 1.6 max + full_pipeline.py
 ---
@@ -17,31 +17,35 @@ Example: `tx-34-voting-record-vicente-gonzalez.md`
 
 ---
 
-## Input
+## Interactive Pre-flight
 
+Complete the following steps in order. Wait for each response before proceeding to the next step.
+
+### Step 1: District and Incumbent Info
+
+Ask the user to provide:
 - **District:** {DISTRICT_ID} (e.g., TX-34)
 - **Incumbent name:** {CANDIDATE_NAME} (e.g., Vicente Gonzalez)
 - **Party:** {PARTY} (Democrat or Republican — determines cross-party break logic)
 - **Congress.gov member ID:** {MEMBER_ID} (e.g., G000581)
-- **Congress.gov CSV:** Attached (downloaded in pre-flight)
 
----
+Confirm you received all four fields before proceeding.
 
-## Pre-flight (manual, before running this prompt)
+### Step 2: Download and Upload Congress.gov Roll Call CSV
 
-Complete these steps before starting. Attach the CSV where noted.
+Walk the user through the download:
 
-### 1. Download Congress.gov Roll Call CSV
-
-1. Go to `https://www.congress.gov/member/{name}/{MEMBER_ID}`
-2. Navigate to the House Roll Call Votes view. URL parameter: `?q={"sponsorship":"houseRollCallVoteFacet"}`
-3. Apply filters:
-   - **Congress:** Check 119 (2025-2026) and 118 (2023-2024)
-   - **Bill Type:** Check ALL four types (Bills, Resolutions, Concurrent Resolutions, Joint Resolutions)
-   - **All other filters:** Leave unselected/unfiltered
-4. Click **Download Results** → **OK**
-5. Save to: `~/early-returns/projects/{DISTRICT_ID}/data/congress-rollcall-{first-last}.csv`
-6. Attach the CSV to this prompt
+> "Download the Congress.gov roll call CSV for {CANDIDATE_NAME}:
+>
+> 1. Go to `https://www.congress.gov/member/{name}/{MEMBER_ID}`
+> 2. Navigate to the House Roll Call Votes view (URL parameter: `?q={"sponsorship":"houseRollCallVoteFacet"}`)
+> 3. Apply filters:
+>    - **Congress:** Check 119 (2025-2026) and 118 (2023-2024)
+>    - **Bill Type:** Check ALL four types (Bills, Resolutions, Concurrent Resolutions, Joint Resolutions)
+>    - **All other filters:** Leave unselected/unfiltered
+> 4. Click **Download Results** → **OK**
+> 5. Save to: `~/early-returns/projects/{DISTRICT_ID}/data/congress-rollcall-{first-last}.csv`
+> 6. Upload the CSV here."
 
 **Why these filters:**
 - **All bill types:** Joint Resolutions include CRA rollback votes (substantive law). Resolutions include messaging votes that show positioning. Excluding any type loses data.
@@ -50,14 +54,37 @@ Complete these steps before starting. Attach the CSV where noted.
 - **No status filter:** A vote on a bill that failed is equally revealing about positioning.
 - **No member activity filter:** Checking Sponsored/Cosponsored switches to legislative activity. Leave unchecked to get votes.
 
-### 2. (Optional) Download OpenSecrets Industry Data
+Wait for the file upload. Confirm the filename and that it contains roll call vote data.
 
-For the donor overlay analysis, pull the member's top industries:
-`https://www.opensecrets.org/members-of-congress/{name}/industries?cid={CID}&cycle=2024`
+### Step 3: OpenSecrets Industry Data (Optional)
+
+Ask the user:
+> "For the donor overlay analysis, download the member's top industries from OpenSecrets:
+> `https://www.opensecrets.org/members-of-congress/{name}/industries?cid={CID}&cycle=2024`
+>
+> Save to: `~/early-returns/projects/{DISTRICT_ID}/data/opensecrets-industries-{first-last}.csv`
+>
+> Upload the CSV here, or type SKIP to run without donor overlay."
 
 Note: OpenSecrets runs one cycle behind. 2024 cycle data is the most recent available as of February 2026. For incumbents, industry relationships are generally stable across cycles.
 
-Save to: `~/early-returns/projects/{DISTRICT_ID}/data/opensecrets-industries-{first-last}.csv` (use the download CSV link on the page)
+If the user types SKIP, proceed without donor overlay (Step 4 will be skipped in analysis).
+
+### Step 4: Confirm Ready
+
+After all inputs are collected, display a summary:
+```
+District: {DISTRICT_ID}
+Incumbent: {CANDIDATE_NAME}
+Party: {PARTY}
+Congress.gov member ID: {MEMBER_ID}
+Congress.gov CSV: {filename} ✓
+OpenSecrets CSV: {filename} ✓ / Skipped
+```
+
+Ask: **"Type READY to begin voting record analysis."**
+
+Do not proceed until the user types READY.
 
 ---
 
@@ -205,7 +232,7 @@ candidate: vicente_gonzalez
 party: Democrat
 date: 2026-02-16
 prompt: district-voting-record-prompt.md
-prompt_version: 1.0
+prompt_version: 1.1
 source_csv: congress-rollcall-vicente-gonzalez.csv
 congresses: 118, 119
 ---
@@ -274,3 +301,4 @@ congresses: 118, 119
 | Version | Date | Changes |
 |:--------|:-----|:--------|
 | 1.0 | 2026-02-16 | Initial version. Developed from TX-34 (Gonzalez) analysis. Pipeline: Congress.gov CSV → full_pipeline.py → House Clerk XML → verified table with cross-party breaks. |
+| 1.1 | 2026-02-17 | Replaced static Input and Pre-flight sections with interactive pre-flight: step-by-step prompts for district/incumbent info, Congress.gov CSV download and upload, optional OpenSecrets CSV, and READY confirmation before proceeding. |

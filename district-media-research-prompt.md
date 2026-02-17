@@ -1,8 +1,8 @@
 # district-media-research-prompt
 
 ---
-version: 1.3
-date: 2026-02-12
+version: 1.4
+date: 2026-02-17
 purpose: Find and extract from media coverage and public sentiment for U.S. House races
 tool: Manus AI 1.6 max
 replaces: district-media-discovery-prompt.md, district-media-notes-prompt.md, district-sentiment-prompt.md
@@ -18,14 +18,49 @@ Example: `tx-34-media-research.md`
 
 ---
 
-## Input
+## Interactive Pre-flight
 
+Complete the following steps in order. Wait for each response before proceeding to the next step.
+
+### Step 1: District and Candidates
+
+Ask the user to provide:
 - **District:** {DISTRICT_ID} (e.g., TX-34, WA-03)
 - **State:** {STATE}
 - **Candidates:** {CANDIDATE_LIST} (all declared candidates — names and parties)
 - **Incumbent:** {INCUMBENT_NAME} and party (if applicable)
-- **Key issues (optional):** {ISSUES} (specific topics to search for, e.g., "redistricting lawsuit," "Trump endorsement," "DHS vote")
-- **Baseline file:** Attach the baseline output (`{district}-baseline.md`) for context on district geography, demographics, and electoral history.
+
+Confirm you received all four fields before proceeding.
+
+### Step 2: Upload Baseline File
+
+Ask the user to upload the baseline research file:
+> "Please upload the baseline file for this district (`{district}-baseline.md`). This provides context on district geography, demographics, and electoral history."
+
+Wait for the file upload. Confirm the filename matches the expected pattern.
+
+### Step 3: Key Issues (Optional)
+
+Ask the user:
+> "Are there specific topics I should search for? Examples: 'redistricting lawsuit,' 'Trump endorsement,' 'DHS vote.' Type SKIP if none."
+
+If the user types SKIP, proceed without issue-specific searches.
+
+### Step 4: Confirm Ready
+
+After all inputs are collected, display a summary:
+```
+District: {DISTRICT_ID}
+State: {STATE}
+Candidates: {CANDIDATE_LIST}
+Incumbent: {INCUMBENT_NAME}
+Baseline file: {filename} ✓
+Key issues: {ISSUES or "None"}
+```
+
+Ask: **"Type READY to begin media research."**
+
+Do not proceed until the user types READY.
 
 ---
 
@@ -311,7 +346,7 @@ district: {DISTRICT_ID}
 type: media-research
 date: {TODAY}
 prompt: district-media-research-prompt.md
-prompt_version: 1.3
+prompt_version: 1.4
 articles_processed: {COUNT}
 social_posts_processed: {COUNT}
 candidates: [{CANDIDATE_LIST}]
@@ -414,3 +449,4 @@ Before delivering the final document, verify each item:
 | 1.1 | 2026-02-11 | Added rigid Final Document Structure section. Strengthened Role with proscriptive language and anti-pattern examples. Added structured-data-only rule as Rule 1. Added national newspapers search tier (NYT, WSJ, WaPo, LAT, AP). Added Sabato's Crystal Ball, Daily Kos/Downballot, States Newsroom to political press searches. Clarified cross-source analysis is factual inventory, not narrative synthesis. Sources appendix numbering must match article/social headings. Based on TX-34 test run feedback from Manus. |
 | 1.2 | 2026-02-11 | YAML example uses placeholders instead of hardcoded values. Added phase separation instruction (collect URLs first, read in Phase 2). Specified HISTORICAL/ARCHIVED tag placement in H2 lines. Added compilation post format for grouped social media entries. Based on Manus post-run review. |
 | 1.3 | 2026-02-12 | Added QA Checklist section for pre-delivery format and content verification. |
+| 1.4 | 2026-02-17 | Replaced static Input section with interactive pre-flight: step-by-step prompts for district info, baseline upload, optional key issues, and READY confirmation before proceeding. |
